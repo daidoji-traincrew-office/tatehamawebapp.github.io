@@ -59,7 +59,7 @@ function initInfo() {
                 // モーダル表示時も最新内容に
                 modalBody.innerHTML = `
                     <h2>${window.textType == 0 ? 'PR':'運行情報'}</h2>
-                    <div class="info-modal-message">${textToShow.replace(/\r\n/g, '<br/>')}</div>
+                    <div class="info-modal-message">${textToShow.replace(/\r\n/g, '<br/>').replace(/／/g, '') }</div>
                 `;
                 modal.style.display = 'flex';
             });
