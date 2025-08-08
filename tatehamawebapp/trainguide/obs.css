@@ -1,0 +1,387 @@
+
+
+
+/* 上部固定タブ */
+
+.top-tab {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 132px;
+    background: #eeeeee;
+    color: #222;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    z-index: 1000;
+    font-size: 1em;
+    box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
+    pointer-events: none;
+}
+
+
+#fixed-tab {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 50px;
+    background: #1976d2;
+    color: #222;
+    display: flex;
+    align-items: center;
+    padding: 0 17px; /* パディングをさらに詰める */
+    z-index: 1000;
+    font-size: 1.0em;
+    box-sizing: border-box;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+
+#time-text-area {
+    position: fixed;
+    width: 100%;
+    top: 50px;
+    left: 0;
+    height: 50px;
+    background: #eee;
+    color: #222;
+    display: flex;
+    align-items: center;
+    z-index: 1000;
+    font-size: 1.0em;
+    box-sizing: border-box;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+
+.fixed-tab-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    /* color: #1976d2; */
+    color: #fff;
+    min-width: 0;
+    line-height: 1.2;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    padding: 0 20px;
+}
+
+
+/* スクロールテキストも上部に固定 */
+
+.scrolling-text-area-mainpage {
+    width: 100%;
+    top: 100px;
+    left: 0;
+    height: 100px;
+    background: #333;
+    color: #fff;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.scrolling-text-area {
+    position: fixed;
+    width: 100%;
+    top: 100px;
+    left: 0;
+    height: 100px;
+    background: #333;
+    color: #fff;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.scrolling-text-wrapper {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    height: 95px;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    pointer-events: none;
+}
+
+.scrolling-text {
+    display: inline-block;
+    white-space: nowrap;
+    padding-left: 100%;
+    animation: scroll-text 20s linear infinite;
+    font-size: 75px;
+    color: #fff;
+    line-height: 1.5;
+    pointer-events: none;
+}
+
+@keyframes scroll-text {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+.default-info-text {
+    display: inline-block;
+    font-size: 1.1em;
+    color: #fff;
+    line-height: 1.5;
+    pointer-events: none;
+    align-items: center;
+    text-align: center;
+}
+
+/* 上部タブの他のスタイルはそのまま */
+
+.fixed-home-link-wrapper {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+#fixed-home-link {
+    background: #fff;
+    color: #222;
+    text-decoration: none;
+    font-weight: 500;
+    margin-right: calc(2em + 20px); /* もともとの右余白に20px追加 */
+    font-size: 1.1em;
+    transition: color 0.2s, background 0.2s;
+    padding: 5px 15px;
+    border-radius: 6px;
+    display: inline-block;
+}
+
+    #fixed-home-link:hover {
+        color: #1976d2;
+        text-decoration: underline;
+        background: #f0f0f0;
+    }
+
+
+
+.fixed-message-absolute {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background: none;
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: bold;
+    white-space: nowrap;
+    z-index: 1001;
+    pointer-events: none;
+}
+
+.fixed-message-subtitle {
+    display: block;
+    font-size: 1.0em;
+    color: #222;
+    margin-top: 0px;
+    text-align: center;
+    font-weight: 500;
+}
+
+.fixed-update-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+}
+
+.fixed-update-label,
+#fixed-time,
+#fixed-time-label {
+    font-size: 0.7em;
+    color: #222;
+    font-weight: 500;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    letter-spacing: 0;
+    background: none;
+    border: none;
+    position: static;
+}
+
+
+
+/* 下部固定タブ */
+#fixed-tab-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 25px;
+    background: #eeeeee;
+    color: #222;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    z-index: 1000;
+    font-size: 1em;
+    box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
+    pointer-events: none;
+}
+
+/* 下部固定タブ */
+#fixed-tab-bottom-end {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 25px;
+    background: #eeeeee;
+    color: #222;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    z-index: 1000;
+    font-size: 1em;
+    box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
+    pointer-events: none;
+}
+
+#fixed-home-link-bottom {
+    background: #fff;
+    color: #ffd700;
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 2em;
+    font-size: 1em;
+    transition: color 0.2s, background 0.2s;
+    padding: 6px 18px;
+    border-radius: 6px;
+    display: inline-block;
+}
+#fixed-home-link-bottom:hover {
+    color: #ffd700;
+    text-decoration: underline;
+    background: #f0f0f0;
+}
+
+#fixed-message-bottom {
+    flex: 1;
+    min-width: 0;
+    font-size: 1em; /* メッセージ全体をやや小さめに */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch; /* stretchで子要素の幅を最大に */
+    justify-content: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.1;
+    gap: 0.1em;
+}
+
+.fixed-bottom-note-area {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    background-color: #ffffff;
+}
+
+.fixed-bottom-note {
+    font-size: 0.92em;
+    color: #222;
+    margin-top: 2px;
+    letter-spacing: 0.02em;
+    text-align: left;
+    width: 100%;
+    padding-left: 20px;
+    box-sizing: border-box;
+    display: block;
+}
+
+.info-icon {
+    width: 90px;
+    height: 90px;
+    margin-right: 12px;
+    margin-left: 12px;
+    flex-shrink: 0;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.scrolling-text-area {
+    cursor: pointer;
+    /* 既存のdisplay:flex;がなければ追加 */
+    display: flex;
+    align-items: center;
+}
+
+.info-modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.4);
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+.info-modal-content {
+    background: #fff;
+    border-radius: 10px;
+    padding: 2em 2em 1.5em 2em;
+    max-width: 40vw;
+    box-shadow: 0 4px 24px #0003;
+    position: relative;
+    text-align: left;
+}
+
+
+#info-modal-body h2 {
+    margin-top: 0;
+    font-size: 1.3em;
+    color: #1976d2;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+    pointer-events: none;
+}
+
+.info-modal-close {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-size: 2em;
+    color: #888;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.info-modal-body {
+    font-size: 1.1em;
+    color: #222;
+}
+
+.info-modal-message {
+    font-size: 1.0em;
+    color: #222;
+    text-align: left;
+}
