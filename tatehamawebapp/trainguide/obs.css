@@ -83,7 +83,7 @@
     width: 100%;
     top: 100px;
     left: 0;
-    height: 32px;
+    height: 100px;
     background: #333;
     color: #fff;
     z-index: 1000;
@@ -100,7 +100,7 @@
     width: 100%;
     top: 100px;
     left: 0;
-    height: 32px;
+    height: 100px;
     background: #333;
     color: #fff;
     z-index: 1000;
@@ -116,7 +116,7 @@
     width: 100%;
     position: relative;
     overflow: hidden;
-    height: 1.6em;
+    height: 95px;
     display: flex;
     align-items: center;
     margin: 0 auto;
@@ -128,7 +128,7 @@
     white-space: nowrap;
     padding-left: 100%;
     animation: scroll-text 20s linear infinite;
-    font-size: 1.1em;
+    font-size: 75px;
     color: #fff;
     line-height: 1.5;
     pointer-events: none;
@@ -314,8 +314,8 @@
 }
 
 .info-icon {
-    width: 25px;
-    height: 25px;
+    width: 90px;
+    height: 90px;
     margin-right: 12px;
     margin-left: 12px;
     flex-shrink: 0;
