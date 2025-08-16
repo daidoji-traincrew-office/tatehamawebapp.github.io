@@ -1,6 +1,6 @@
 function updateTime() {
     const now = new Date();
-    now.setHours(now.getHours() - 6); // 10時間前に調整
+    now.setHours(now.getHours() - 4); // 10時間前に調整
     const hh = String(now.getHours()).padStart(2, '0');
     const mm = String(now.getMinutes()).padStart(2, '0');
     const timeElem = document.getElementById('fixed-time');
