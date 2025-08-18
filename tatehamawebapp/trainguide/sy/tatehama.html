@@ -1403,7 +1403,8 @@
     </script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const urlParams = new URLSearchParams(window.location.search);
+            const url = new URL(window.location.href);
+            const urlParams = new URLSearchParams(url.search + url.hash.substring(url.hash.indexOf('?')));
             if (urlParams.get('gb') === 'true') {
                 document.body.classList.add('green-background');
             }

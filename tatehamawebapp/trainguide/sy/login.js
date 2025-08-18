@@ -22,8 +22,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const user = document.getElementById('user-input').value;
         const pw = document.getElementById('pw-input').value;
         if (users[user] && users[user] === pw) {
-            const urlParams = new URLSearchParams(window.location.search);
-            const gbParam = urlParams.get('gb');
+            const currentUrl = new URL(window.location.href);
+            const currentUrlParams = new URLSearchParams(currentUrl.search + currentUrl.hash.substring(currentUrl.hash.indexOf('?')));
+            const gbParam = currentUrlParams.get('gb');
             let redirectUrl = "tatehama.html";
             if (gbParam === "true") {
                 redirectUrl += "?gb=true";
