@@ -22,7 +22,14 @@ document.addEventListener('DOMContentLoaded', function () {
         const user = document.getElementById('user-input').value;
         const pw = document.getElementById('pw-input').value;
         if (users[user] && users[user] === pw) {
-            window.location.href = " tatehama.html#TH65 ";
+            const urlParams = new URLSearchParams(window.location.search);
+            const gbParam = urlParams.get('gb');
+            let redirectUrl = "tatehama.html";
+            if (gbParam === "true") {
+                redirectUrl += "?gb=true";
+            }
+            redirectUrl += "#TH65";
+            window.location.href = redirectUrl;
         } else {
             const msg = errorMessages[Math.floor(Math.random() * errorMessages.length)];
             document.getElementById('pw-error').textContent = msg;
