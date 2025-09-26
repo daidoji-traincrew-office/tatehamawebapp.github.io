@@ -1,6 +1,6 @@
 // ユーザーIDとパスワードの組み合わせをオブジェクトで管理
 const users = {
-    "traincrew": "tatehama2021",
+    "traincrew": "daidoji2024",
     "mizotuki": "Gokuraku@Temple",
     // 必要なだけ追加
 };
