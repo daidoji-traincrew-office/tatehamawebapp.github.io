@@ -1,7 +1,7 @@
 // JavaScript source code
 async function Getdata() {
-    const requestURL = "https://traincrew-multiats-server-passenger.kesigomon.com/api/train"
-    //const requestURL = "https://traincrew-multiats-server-passenger-dev.kesigomon.com/api/train"
+    //const requestURL = "https://traincrew-multiats-server-passenger.kesigomon.com/api/train"
+    const requestURL = "https://traincrew-multiats-server-passenger-dev.kesigomon.com/api/train"
 
     const reqest = new Request(requestURL);
 
