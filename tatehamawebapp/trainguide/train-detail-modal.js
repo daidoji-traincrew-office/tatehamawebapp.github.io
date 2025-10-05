@@ -122,7 +122,7 @@ function showTrainDetail(trainId) {
         <tr><th>種別</th><td><span class="${kindClass}">${kind}</span></td></tr>
         <tr><th>行先</th><td>${destName}</td></tr>
         <tr><th>編成両数</th><td>${carCount} 両</td></tr>
-
+        <tr><th>遅延</th><td>${train.Delay ?? ''} 分</td></tr>
         <tr><th>走行位置</th><td>${trackDisplay || trackName}</td></tr>
       </table>
 
@@ -133,7 +133,7 @@ function showTrainDetail(trainId) {
     modal.style.display = 'flex';
 }
 
-//         <tr><th>遅延</th><td>${train.Delay ?? ''} 分</td></tr>
+//         
 
 
 

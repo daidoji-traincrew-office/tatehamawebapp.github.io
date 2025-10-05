@@ -1,4 +1,4 @@
-﻿body {
+body {
     margin: 0;
     font-family: "M PLUS 1", sans-serif;
     background-color: #f9f9f9;
@@ -347,3 +347,19 @@ background-image: url("icons/d_ex_ltd.png");
         box-shadow: 0 4px 12px rgba(25, 118, 210, 0.15);
     }
 
+/* グリーンバックモード用 */
+body.green-background {
+    background-color: #00ff00 !important; /* 明るい緑色 */
+    background-image: none !important; /* 背景画像を無効にする */
+}
+
+body.green-background .station-background {
+    background-color: #00ff00 !important;
+    background-image: none !important;
+}
+
+body.green-background .station-group:nth-of-type(even) .station-background,
+body.green-background .station-group:nth-of-type(odd) .station-background {
+    background-color: #00ff00 !important;
+    background-image: none !important;
+}

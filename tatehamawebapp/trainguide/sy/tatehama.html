@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -1400,6 +1400,15 @@
 
         // ハッシュ変更時
         window.addEventListener("hashchange", scrollToHashCenter);
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const url = new URL(window.location.href);
+            const urlParams = new URLSearchParams(url.search + url.hash.substring(url.hash.indexOf('?')));
+            if (urlParams.get('gb') === 'true') {
+                document.body.classList.add('green-background');
+            }
+        });
     </script>
 </body>
 
