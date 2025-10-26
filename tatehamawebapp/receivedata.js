@@ -15,11 +15,11 @@ async function Getdata() {
     const datastring_D = await responce_D.text();
     Location_data_D = JSON.parse(datastring_D);
 
-    if (Location_data_D.ServerMode) {
-        Location_data = Location_data_D;
-    }
-    else if (Location_data_P.ServerMode) {
+    if (Location_data_P.ServerMode) {
         Location_data = Location_data_P;
+    } 
+    else if (Location_data_D.ServerMode) {
+        Location_data = Location_data_D;
     }
     else {
         Location_data = {
