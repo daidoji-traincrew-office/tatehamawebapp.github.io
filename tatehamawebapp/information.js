@@ -1,7 +1,7 @@
 // JavaScript source code
 
 // デフォルト文言
-const DEFAULT_INFORMATION_TEXT = `【館浜本線 運転会時間外】`;
+const DEFAULT_INFORMATION_TEXT = `【館浜本線 運転会時間外】\n館浜本線は、現在運転会時間外のため、運転を見合わせています。`;
 
 // 運行情報テキスト
 window.informationtexts = [{ "Type": 1, Content: DEFAULT_INFORMATION_TEXT }];
