@@ -36,6 +36,9 @@ async function Getdata() {
     else if (Location_data_D && Location_data_D.ServerMode) {
         Location_data = Location_data_D;
     }
+    else if (Location_data_P) {
+        Location_data = Location_data_P;
+    }
     else {
         Location_data = {
             "ServerMode": true,
