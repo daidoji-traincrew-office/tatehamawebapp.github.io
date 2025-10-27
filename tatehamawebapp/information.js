@@ -8,7 +8,8 @@ window.informationtexts = [{ "Type": 1, Content: DEFAULT_INFORMATION_TEXT }];
 window.informationindex = -1;
 
 // スクロール速度（ピクセル/秒）を外部から変更可能に
-window.scrollSpeed = 150; // デフォルト値
+window.scrollSpeedDefault = 150; // デフォルト値
+window.scrollSpeed = window.scrollSpeedDefault; // デフォルト値
 
 function updateInformationText() {
     const infos = Location_data.OperationInformations;
@@ -23,12 +24,12 @@ function updateInformationText() {
     // スクロール速度を設定
     const length = window.informationtexts.length;
     if (length <= 2) {
-        window.scrollSpeed = 150; // 最低速度
+        window.scrollSpeed = window.scrollSpeedDefault; // 最低速度
     } else if (length >= 12) {
-        window.scrollSpeed = 300; // 最大速度
+        window.scrollSpeed = window.scrollSpeedDefault * 2; // 最大速度
     } else {
         // 線形補間で速度を計算
-        window.scrollSpeed = 150 + ((length - 2) / (12 - 2)) * (300 - 150);
+        window.scrollSpeed = window.scrollSpeedDefault + ((length - 2) / (12 - 2)) * (window.scrollSpeedDefault * 2 - window.scrollSpeedDefault);
     }
 }
 

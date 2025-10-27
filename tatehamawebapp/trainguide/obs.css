@@ -127,16 +127,10 @@
     display: inline-block;
     white-space: nowrap;
     padding-left: 100%;
-    animation: scroll-text 20s linear infinite;
     font-size: 75px;
     color: #fff;
     line-height: 1.5;
     pointer-events: none;
-}
-
-@keyframes scroll-text {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
 }
 
 .default-info-text {
