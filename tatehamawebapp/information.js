@@ -103,7 +103,7 @@ function initInfo() {
         area.addEventListener('click', function () {
             modalBody.innerHTML = `
                 <h2>${window.textType == 0 ? 'PR' : '運行情報'}</h2>
-                <div class="info-modal-message">${textToShow.replace(/\r\n/g, '<br/>')}</div>
+                <div class="info-modal-message">${textToShow.replace(/\r\n/g, '<br/>').replace(/／/g, '<br/>') }</div>
             `;
             modal.style.display = 'flex';
         });
