@@ -83,6 +83,7 @@ function printInformationText() {
     }
 
     // 次に表示するテキストを取得
+    window.textType = window.informationtexts[window.informationindex]?.Type || 1;
     window.textToShow = window.informationtexts[window.informationindex]?.Content?.trim() || DEFAULT_INFORMATION_TEXT;
     elBottom.textContent = textToShow.replace(/\n/g, ""); // 改行を削除
 }
