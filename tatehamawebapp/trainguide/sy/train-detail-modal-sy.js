@@ -80,7 +80,10 @@ function showTrainDetail(trainId) {
             isUp = num % 2 === 0
         }
 
-        const imgList = getCarImageFileNames(train.CarStates, isUp);
+        const r = getCarImageFileNames(train.CarStates, isUp);
+        console.log(r);
+        const imgList = r[0];
+        var carString = r[1];
         carImagesHtml = `<div class="train-car-image-row">` +
             imgList.map((imgSrc, idx) => {
                 const alt = train.CarStates[idx]?.CarModel ?? "";
@@ -153,6 +156,7 @@ function showTrainDetail(trainId) {
       <table>
         <tr><th>列車番号</th><td>${train.Name || trainId}</td></tr>
         <tr><th>運行番号</th><td>${operationNumber}運行</td></tr>
+        <tr><th>組成</th><td>${carString}</td></tr>
         <tr><th>遅延</th><td>${train.Delay ?? ''} 分</td></tr>
         <tr><th>種別</th><td><span class="${kindClass}">${kind}</span></td></tr>
         <tr><th>始発</th><td>${fromName}</td></tr>
