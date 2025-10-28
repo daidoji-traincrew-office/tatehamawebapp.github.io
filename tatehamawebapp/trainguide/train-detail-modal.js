@@ -77,7 +77,8 @@ function showTrainDetail(trainId) {
             isUp = num % 2 === 0
         }
 
-        const imgList = getCarImageFileNames(train.CarStates, isUp);
+        const r = getCarImageFileNames(train.CarStates, isUp);
+        const imgList = r[0];
         carImagesHtml = `<div class="train-car-image-row">` +
             imgList.map((imgSrc, idx) => {
                 const alt = train.CarStates[idx]?.CarModel ?? "";
