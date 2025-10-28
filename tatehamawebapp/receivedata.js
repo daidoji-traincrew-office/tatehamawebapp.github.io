@@ -42,7 +42,7 @@ async function Getdata() {
             "TrackCircuitData": [],
             "TrainInfos": {},
             "OperationInformations": [
-                { "Id": 0, "Content": "【TRAIN CREW　好評発売中】\r\n列車運転ゲーム「TRAIN CREW」\r\n運転士はもちろん、シミュレーションゲームでは珍しい車掌もプレイ可能。\r\nSteamより、1980円で発売中。\r\n詳しくは「TRAIN CREW」で検索！", "Type": 4, "StartTime": "1970-01-01T00:00:00", "EndTime": "4000-12-31T00:00:00" },
+                { "Id": 0, "Content": "【TRAIN CREW　好評発売中】\r\n列車運転ゲーム「TRAIN CREW」\r\n運転士はもちろん、シミュレーションゲームでは珍しい車掌もプレイ可能。\r\nSteamより、1980円で発売中。\r\n詳しくは「TRAIN CREW」で検索！", "Type": 0, "StartTime": "1970-01-01T00:00:00", "EndTime": "4000-12-31T00:00:00" },
                 { "Id": 1, "Content": "【館浜本線 運転会時間外】\r\n館浜本線は、現在運転会時間外のため、運転を見合わせています。", "Type": 3, "StartTime": "1970-01-01T00:00:00", "EndTime": "4000-12-31T00:00:00" }
             ]
         }
