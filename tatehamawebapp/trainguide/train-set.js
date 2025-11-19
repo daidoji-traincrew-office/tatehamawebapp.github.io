@@ -177,7 +177,7 @@ function placeAllTrainIconsByLocation() {
             let type = TypeString(dianame);
 
             if (1 <= trainInfo.TrainClass && trainInfo.TrainClass <= 23) {
-                type = trainInfo.TrainClass;
+                type = HIDE ? 0 : trainInfo.TrainClass;
             }
 
             const updown = directionMap[dianame];

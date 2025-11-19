@@ -154,13 +154,13 @@ function showTrainDetail(trainId) {
             ${carImagesHtml}
             ${directionHtml}
       <table>
-        <tr><th>列車番号</th><td>${train.Name || trainId}</td></tr>
-        <tr><th>運行番号</th><td>${operationNumber}運行</td></tr>
+        <tr><th>列車番号</th><td>${ HIDE ? '?????' : train.Name || trainId}</td></tr>
+        <tr><th>運行番号</th><td>${ HIDE ? '??' : operationNumber}運行</td></tr>
         <tr><th>組成</th><td>${carString}</td></tr>
         <tr><th>遅延</th><td>${train.Delay ?? ''} 分</td></tr>
-        <tr><th>種別</th><td><span class="${kindClass}">${kind}</span></td></tr>
-        <tr><th>始発</th><td>${fromName}</td></tr>
-        <tr><th>行先</th><td>${destName}</td></tr>
+        <tr><th>種別</th><td><span class="${kindClass}">${HIDE ? '？？' : kind}</span></td></tr>
+        <tr><th>始発</th><td>${ HIDE ? '？？？' : fromName}</td></tr>
+        <tr><th>行先</th><td>${ HIDE ? '？？？' : destName}</td></tr>
         <tr><th>両数</th><td>${carCount} 両</td></tr>
         <tr><th>位置</th><td>${trackDisplay || trackName}</td></tr>
 
