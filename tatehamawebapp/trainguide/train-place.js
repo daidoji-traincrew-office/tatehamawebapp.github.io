@@ -21,7 +21,7 @@ function TrainPlace(sta1, sta2, updown, count, position, type, dianame) {
     Train_icon_container = document.getElementById(Place_name);
 
     if (Train_icon_container == null) {
-        console.error('Train icon container not found for place: ' + Place_name);
+        //console.error('Train icon container not found for place: ' + Place_name);
         return; // 置く場所が見つからない場合は処理を中止
     }
 
