@@ -13,6 +13,10 @@ async function Interval() {
 }
 
 document.addEventListener('DOMContentLoaded', async function () {
+    const params = new URLSearchParams(window.location.search);
+
+    // クエリパラメータ "hideTrainNumber" が存在するかチェック
+    HIDE = params.has('hideTrainNumber');
     await Interval();
     // 10秒ごとに実行
     setInterval(Interval, 10000);

@@ -107,7 +107,7 @@
     background-size: contain;
     background-repeat: no-repeat;
 }
-/* 上り臨時 */
+/* 上り団体 */
 .train-up-19 {
     background-image: url("icons/u_extra.png");
     background-size: contain;
@@ -115,7 +115,7 @@
 }
 /* 上り回送 */
 .train-up-20 {
-    background-image: url("icons/u_extra.png");
+    background-image: url("icons/u_outserv.png");
     background-size: contain;
     background-repeat: no-repeat;
 }

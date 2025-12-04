@@ -1,6 +1,6 @@
 // é‘óºèÓïÒÇ©ÇÁâÊëúÉtÉ@ÉCÉãñºÇåàíËÇ∑ÇÈä÷êî
 function getCarImageFileNames(carStates, isUp) {
-    if (!Array.isArray(carStates)) return [];
+    if (!Array.isArray(carStates)) return [[],""];
 
     var copyCarStates = JSON.parse(JSON.stringify(carStates));
     if (isUp) {
@@ -19,10 +19,12 @@ function getCarImageFileNames(carStates, isUp) {
     }
 
     var iconList = [];
+    formationString = "";
     formationList.map((f) => {
         console.log("f:", f);
         switch (f) {
             case "3000":
+                formationString += "3000+";
                 iconList = iconListConcat(iconList, [
                     "caricons/TC_3000.png",
                     "caricons/TC_3500.png",
@@ -33,6 +35,7 @@ function getCarImageFileNames(carStates, isUp) {
                 ]);
                 break;
             case "3020":
+                formationString += "3020+";
                 iconList = iconListConcat(iconList, [
                     "caricons/TC_3020.png",
                     "caricons/TC_3520.png",
@@ -43,6 +46,7 @@ function getCarImageFileNames(carStates, isUp) {
                 ]);
                 break;
             case "3300V":
+                formationString += "33V+";
                 iconList = iconListConcat(iconList, [
                     "caricons/TC_3300.png",
                     "caricons/TC_3800.png",
@@ -50,6 +54,7 @@ function getCarImageFileNames(carStates, isUp) {
                 ]);
                 break;
             case "4000":
+                formationString += "4000+";
                 iconList = iconListConcat(iconList, [
                     "caricons/TC_4000.png",
                     "caricons/TC_4100.png",
@@ -60,6 +65,7 @@ function getCarImageFileNames(carStates, isUp) {
                 ]);
                 break;
             case "4000R":
+                formationString += "4000R+";
                 iconList = iconListConcat(iconList, [
                     "caricons/TC_4000r.png",
                     "caricons/TC_4100r.png",
@@ -70,6 +76,7 @@ function getCarImageFileNames(carStates, isUp) {
                 ]);
                 break;
             case "4300":
+                formationString += "4300+";
                 iconList = iconListConcat(iconList, [
                     "caricons/TC_4300.png",
                     "caricons/TC_4400.png",
@@ -78,12 +85,14 @@ function getCarImageFileNames(carStates, isUp) {
                 ]);
                 break;
             case "4500":
+                formationString += "45+";
                 iconList = iconListConcat(iconList, [
                     "caricons/TC_4500.png",
                     "caricons/TC_4550.png"
                 ]);
                 break;
             case "4321":
+                formationString += "4321+";
                 iconList = iconListConcat(iconList, [
                     "caricons/TC_4321.png",
                     "caricons/TC_4421.png",
@@ -92,6 +101,7 @@ function getCarImageFileNames(carStates, isUp) {
                 ]);
                 break;
             case "4600":
+                formationString += "4600+";
                 iconList = iconListConcat(iconList, [
                     "caricons/TC_4600.png",
                     "caricons/TC_4700.png",
@@ -100,12 +110,14 @@ function getCarImageFileNames(carStates, isUp) {
                 ]);
                 break;
             case "4800":
+                formationString += "48+";
                 iconList = iconListConcat(iconList, [
                     "caricons/TC_4800.png",
                     "caricons/TC_4850.png"
                 ]);
                 break;
             case "5300":
+                formationString += "5300+";
                 iconList = iconListConcat(iconList, [
                     "caricons/TC_5300.png",
                     "caricons/TC_5400.png",
@@ -114,18 +126,21 @@ function getCarImageFileNames(carStates, isUp) {
                 ]);
                 break;
             case "5500":
+                formationString += "55+";
                 iconList = iconListConcat(iconList, [
                     "caricons/TC_5500.png",
                     "caricons/TC_5550.png"
                 ]);
                 break;
             case "5600":
+                formationString += "56+";
                 iconList = iconListConcat(iconList, [
                     "caricons/TC_5600.png",
                     "caricons/TC_5650.png"
                 ]);
                 break;
             case "5320":
+                formationString += "5320+";
                 iconList = iconListConcat(iconList, [
                     "caricons/TC_5320.png",
                     "caricons/TC_5420.png",
@@ -134,6 +149,7 @@ function getCarImageFileNames(carStates, isUp) {
                 ]);
                 break;
             case "50000":
+                formationString += "V6+";
                 iconList = iconListConcat(iconList, [
                     "caricons/TC_50000.png",
                     "caricons/TC_50100.png",
@@ -160,7 +176,10 @@ function getCarImageFileNames(carStates, isUp) {
 
     console.log("iconList:", iconList);
 
-    return iconList;
+    // ññîˆÇÃ"+"ÇçÌèú
+    formationString = formationString.replace(/\+$/, '');
+
+    return [iconList, formationString];
 }
 
 function iconListConcat(iconList1, iconList2) {
