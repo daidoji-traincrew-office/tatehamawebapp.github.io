@@ -42,7 +42,7 @@ function location_to_place() {
 
     }
     )
-    console.log(dianame_location);
+    //console.log(dianame_location);
 
     var location_dianame = {}; 
 
