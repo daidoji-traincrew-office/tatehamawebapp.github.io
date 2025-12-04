@@ -44,10 +44,10 @@ function TrainPlace(sta1, sta2, updown, count, position, type, dianame) {
     Train_icon = 'train-' + updown + '-' + type;
 
 
-    console.log('Place_name: ' + Place_name);
-    console.log('Train_icon_position: ' + Train_icon_position);
-    console.log('Train_icon: ' + Train_icon)
-    console.log('Train_icon_container: ' + Train_icon_container);
+    //console.log('Place_name: ' + Place_name);
+    //console.log('Train_icon_position: ' + Train_icon_position);
+    //console.log('Train_icon: ' + Train_icon)
+    //console.log('Train_icon_container: ' + Train_icon_container);
 
 
 
