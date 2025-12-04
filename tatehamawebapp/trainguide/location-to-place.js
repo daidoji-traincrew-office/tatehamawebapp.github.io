@@ -22,7 +22,12 @@ function location_to_place() {
         //在線位置を探す//
 
         if (Trainlocation[2] == null) {  //駅に在線してる時//
-            Place_name = Trainlocation[1]
+            // 4番目の値（番線番号）が存在する場合は、TH71_donw2のように定義
+            if (Trainlocation.length > 3 && Trainlocation[3] != null) {
+                Place_name = Trainlocation[1] + '_' + Trainlocation[3];
+            } else {
+                Place_name = Trainlocation[1];
+            }
         }
 
         else {   //駅間に在線してる時(nextstaがnullのとき)//
@@ -37,7 +42,7 @@ function location_to_place() {
 
     }
     )
-    //console.log(dianame_location);
+    console.log(dianame_location);
 
     var location_dianame = {}; 
 
