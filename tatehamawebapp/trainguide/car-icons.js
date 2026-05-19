@@ -202,8 +202,22 @@ function addHtoFileName(filename) {
 
 
 var MasterComparison = {
-    "3000": [{ "CarModel": "3000", "HasConductorCab": true, "HasDriverCab": true, "HasMotor": true, "HasPantograph": true }, { "CarModel": "3000", "HasConductorCab": false, "HasDriverCab": false, "HasMotor": false, "HasPantograph": false }, { "CarModel": "3000", "HasConductorCab": false, "HasDriverCab": false, "HasMotor": false, "HasPantograph": true }, { "CarModel": "3000", "HasConductorCab": false, "HasDriverCab": false, "HasMotor": true, "HasPantograph": false }, { "CarModel": "3000", "HasConductorCab": false, "HasDriverCab": false, "HasMotor": false, "HasPantograph": false }, { "CarModel": "3000", "HasConductorCab": true, "HasDriverCab": true, "HasMotor": true, "HasPantograph": true }],
-    "3020": [{ "CarModel": "3020", "HasPantograph": true, "HasDriverCab": true, "HasConductorCab": true, "HasMotor": true }, { "CarModel": "3020", "HasPantograph": false, "HasDriverCab": false, "HasConductorCab": false, "HasMotor": false }, { "CarModel": "3020", "HasPantograph": true, "HasDriverCab": false, "HasConductorCab": false, "HasMotor": true }, { "CarModel": "3020", "HasPantograph": false, "HasDriverCab": false, "HasConductorCab": false, "HasMotor": false }, { "CarModel": "3020", "HasPantograph": false, "HasDriverCab": false, "HasConductorCab": false, "HasMotor": false }, { "CarModel": "3020", "HasPantograph": true, "HasDriverCab": true, "HasConductorCab": true, "HasMotor": true }],
+    "3000": [
+        { "CarModel": "3000", "HasConductorCab": true,  "HasDriverCab": true,  "HasMotor": true, "HasPantograph": true  },
+        { "CarModel": "3000", "HasConductorCab": false, "HasDriverCab": false, "HasMotor": true, "HasPantograph": true  },
+        { "CarModel": "3000", "HasConductorCab": false, "HasDriverCab": false, "HasMotor": true, "HasPantograph": true  },
+        { "CarModel": "3000", "HasConductorCab": false, "HasDriverCab": false, "HasMotor": true, "HasPantograph": true  },
+        { "CarModel": "3000", "HasConductorCab": false, "HasDriverCab": false, "HasMotor": true, "HasPantograph": true  },
+        { "CarModel": "3000", "HasConductorCab": true,  "HasDriverCab": true,  "HasMotor": true, "HasPantograph": true  }
+    ],
+    "3020": [
+        { "CarModel": "3020", "HasPantograph": true,  "HasDriverCab": true,  "HasConductorCab": true,  "HasMotor": true },
+        { "CarModel": "3020", "HasPantograph": false, "HasDriverCab": false, "HasConductorCab": false, "HasMotor": true },
+        { "CarModel": "3020", "HasPantograph": true,  "HasDriverCab": false, "HasConductorCab": false, "HasMotor": true },
+        { "CarModel": "3020", "HasPantograph": false, "HasDriverCab": false, "HasConductorCab": false, "HasMotor": true },
+        { "CarModel": "3020", "HasPantograph": false, "HasDriverCab": false, "HasConductorCab": false, "HasMotor": true },
+        { "CarModel": "3020", "HasPantograph": true,  "HasDriverCab": true,  "HasConductorCab": true,  "HasMotor": true }
+    ],
     "3300V": [{ "CarModel": "3300V", "HasPantograph": true, "HasDriverCab": true, "HasConductorCab": true, "HasMotor": true, }, { "CarModel": "3300V", "HasPantograph": false, "HasDriverCab": false, "HasConductorCab": false, "HasMotor": false, }, { "CarModel": "3300V", "HasPantograph": true, "HasDriverCab": true, "HasConductorCab": true, "HasMotor": true, }],
     "4000": [{ "CarModel": "4000", "HasPantograph": true, "HasDriverCab": true, "HasConductorCab": true, "HasMotor": true }, { "CarModel": "4000", "HasPantograph": false, "HasDriverCab": false, "HasConductorCab": false, "HasMotor": false }, { "CarModel": "4000", "HasPantograph": true, "HasDriverCab": false, "HasConductorCab": false, "HasMotor": true }, { "CarModel": "4000", "HasPantograph": false, "HasDriverCab": false, "HasConductorCab": false, "HasMotor": false }, { "CarModel": "4000", "HasPantograph": false, "HasDriverCab": false, "HasConductorCab": false, "HasMotor": false }, { "CarModel": "4000", "HasPantograph": true, "HasDriverCab": true, "HasConductorCab": true, "HasMotor": true, }],
     "4000R": [{ "CarModel": "4000R", "HasPantograph": true, "HasDriverCab": true, "HasConductorCab": true, "HasMotor": true }, { "CarModel": "4000R", "HasPantograph": false, "HasDriverCab": false, "HasConductorCab": false, "HasMotor": false }, { "CarModel": "4000R", "HasPantograph": true, "HasDriverCab": false, "HasConductorCab": false, "HasMotor": true }, { "CarModel": "4000R", "HasPantograph": false, "HasDriverCab": false, "HasConductorCab": false, "HasMotor": false }, { "CarModel": "4000R", "HasPantograph": false, "HasDriverCab": false, "HasConductorCab": false, "HasMotor": false }, { "CarModel": "4000R", "HasPantograph": true, "HasDriverCab": true, "HasConductorCab": true, "HasMotor": true }],

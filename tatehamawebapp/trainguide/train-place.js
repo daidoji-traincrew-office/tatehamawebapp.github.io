@@ -36,7 +36,7 @@ function TrainPlace(sta1, sta2, updown, count, position, type, dianame) {
     const trainInfo = Location_data && Location_data.TrainInfos ? Location_data.TrainInfos[dianame] : null;
     const delay = trainInfo ? Math.max(0, trainInfo.Delay ?? 0) : 0;
     const delayHtml = delay > 0
-        ? `<span class="train-delay-label train-delay-${updown}">${delay}</span>`
+        ? `<span class="train-delay-label train-delay-${updown}">+${delay}</span>`
         : '';
 
     Train_icon_container.innerHTML +=
