@@ -1,4 +1,4 @@
-const DEBUG_MODE = false;
+
 
 // グローバル変数として初期化
 var Location_data = {
@@ -7,6 +7,9 @@ var Location_data = {
     "TrainInfos": {},
     "OperationInformations": []
 };
+
+
+const DEBUG_MODE = false;
 
 async function Getdata() {
     if (DEBUG_MODE) {
