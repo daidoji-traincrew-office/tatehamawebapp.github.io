@@ -1,54 +1,46 @@
 // JavaScript source code
 function TrainPlace(sta1, sta2, updown, count, position, type, dianame) {
 
-
-
-
-
     //在線位置を探す//
-
-    if (sta2 == null) {  //駅に在線してる時//
+    if (sta2 == null) {
         Place_name = sta1
     }
-    else {   //駅間に在線してる時(nextstaがnullのとき)//
+    else {
         Place_name = sta1 + '-' + sta2
     }
 
-
-
-    if (sta2 == null) {  // 駅に在線してる時
-        // まず「_数字」の形式かどうか判定
+    if (sta2 == null) {
         const match = sta1.match(/^([A-Z0-9]+)_(up|down)(\d+)$/);
         if (match) {
-            //Place_nameから番線番号を削除する
             Place_name = match[1];
-            // match[1]: 駅ID, match[2]: up/down, match[3]: 番号
             Train_icon_position = 'train-icon-' + match[2] + match[3];
         } else {
-            // 「_数字」がない場合も通常処理
             Train_icon_position = 'train-icon-' + updown + position;
         }
-    } else {   // 駅間に在線してる時
+    } else {
         Train_icon_position = 'train-icon-ss' + count + '-' + updown + position;
     }
 
-
-    //置く場所を探す//
     Train_icon_container = document.getElementById(Place_name);
 
     if (Train_icon_container == null) {
         console.error('Train icon container not found for place: ' + Place_name);
-        return; // 置く場所が見つからない場合は処理を中止
+        return;
     }
 
-    //置くアイコンを決める//
     Train_icon = 'train-' + updown + '-' + type;
 
 
 
-    //探した場所にアイコンを置く//
+    //遅延テキストを生成
+    const trainInfo = Location_data && Location_data.TrainInfos ? Location_data.TrainInfos[dianame] : null;
+    const delay = trainInfo ? Math.max(0, trainInfo.Delay ?? 0) : 0;
+    const delayHtml = delay > 0
+        ? `<span class="train-delay-label train-delay-${updown}">+${delay}</span>`
+        : '';
+
     Train_icon_container.innerHTML +=
-      '<div class="train-icon ' + Train_icon + ' ' + Train_icon_position + '" data-train-id="' + dianame + '"></div>';
+        `<div class="train-icon ${Train_icon} ${Train_icon_position}" data-train-id="${dianame}">${delayHtml}</div>`;
 
 
 
