@@ -26,11 +26,10 @@ function getSortedDianameList(placeName, updown, dianameList) {
 
 // コンソールから確認用: showSectionOrder() で呼び出す
 window.showSectionOrder = function() {
-    console.table(
-        Object.entries(sectionOrderMap).map(([place, val]) => ({
-            section: place,
-            up: val.up.join(", ") || "none",
-            down: val.down.join(", ") || "none"
-        }))
-    );
+    Object.entries(sectionOrderMap).forEach(([place, val]) => {
+        console.log(place + " | up: " + val.up.join(", ") + " | down: " + val.down.join(", "));
+    });
+    if (Object.keys(sectionOrderMap).length === 0) {
+        console.log("在線検知なし");
+    }
 };

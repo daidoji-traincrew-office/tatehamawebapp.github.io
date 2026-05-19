@@ -165,47 +165,43 @@ function getDirectionByName(name) {
 function placeAllTrainIconsByLocation() {
     if (!Location_data || !Location_data.TrainInfos) return;
 
-    const locationDianame = location_to_place(); // 駅名や駅間名ごとのダイヤ名配列
+    const locationDianame = location_to_place();
 
     Object.keys(locationDianame).forEach(placeName => {
         const dianameList = locationDianame[placeName];
         if (!Array.isArray(dianameList) || dianameList.length === 0) return;
 
-        // 上下別にカウント
         const { upCount, downCount, directionMap } = checkLastEvenOdd(dianameList, Location_data.TrainInfos);
 
-        // 上下別の現在のインデックス
-        let upIndex = 0;
-        let downIndex = 0;
+        const isSection = placeName.includes('-');
+
+        const upList   = dianameList.filter(d => directionMap[d] === "up");
+        const downList = dianameList.filter(d => directionMap[d] === "down");
+        const sortedUp   = isSection ? getSortedDianameList(placeName, "up",   upList)   : upList;
+        const sortedDown = isSection ? getSortedDianameList(placeName, "down", downList) : downList;
 
         dianameList.forEach(dianame => {
             const trainInfo = Location_data.TrainInfos[dianame];
             if (!trainInfo) return;
             let type = TypeString(dianame);
-
             if (1 <= trainInfo.TrainClass && trainInfo.TrainClass <= 23) {
                 type = HIDE ? 0 : trainInfo.TrainClass;
             }
 
             const updown = directionMap[dianame];
-
-            // 駅間かどうか判定
             let sta1 = placeName;
             let sta2 = null;
             if (placeName.includes('-')) {
                 [sta1, sta2] = placeName.split('-');
             }
 
-            // 上下別にposition, countを設定
             let position = 1;
             let count = 1;
             if (updown === "up") {
-                upIndex++;
-                position = upIndex;
+                position = sortedUp.indexOf(dianame) + 1;
                 count = upCount;
             } else if (updown === "down") {
-                downIndex++;
-                position = downIndex;
+                position = sortedDown.indexOf(dianame) + 1;
                 count = downCount;
             }
 
