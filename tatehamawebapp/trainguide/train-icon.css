@@ -83,32 +83,38 @@
     background-size: contain;
     background-repeat: no-repeat;
 }
-/* 上りB特 */
+/* 上りC5 */
 .train-up-15 {
     background-image: url("icons/u_ltd.png");
     background-size: contain;
     background-repeat: no-repeat;
 }
-/* 上りA特 */
+/* 上りB特 */
 .train-up-16 {
     background-image: url("icons/u_ltd.png");
     background-size: contain;
     background-repeat: no-repeat;
 }
-/* 上り臨時 */
+/* 上りA特 */
 .train-up-17 {
+    background-image: url("icons/u_ltd.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+/* 上り臨時 */
+.train-up-18 {
     background-image: url("icons/u_extra.png");
     background-size: contain;
     background-repeat: no-repeat;
 }
 /* 上り試運転 */
-.train-up-18 {
+.train-up-19 {
     background-image: url("icons/u_outserv.png");
     background-size: contain;
     background-repeat: no-repeat;
 }
 /* 上り団体 */
-.train-up-19 {
+.train-up-21 {
     background-image: url("icons/u_extra.png");
     background-size: contain;
     background-repeat: no-repeat;
@@ -121,8 +127,22 @@
 }
 
 /* 上り臨時特急 */
-.train-up-23 {
+.train-up-24 {
     background-image: url("icons/u_ex_ltd.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/* 上り区間急行 */
+.train-up-22 {
+    background-image: url("icons/u_subexp.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/* 上り臨時区間急行 */
+.train-up-23 {
+    background-image: url("icons/u_ex_subexp.png");
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -218,37 +238,43 @@
     background-size: contain;
     background-repeat: no-repeat;
 }
-/* 下りB特 */
+/* 下りC5 */
 .train-down-15 {
     background-image: url("icons/d_ltd.png");
     background-size: contain;
     background-repeat: no-repeat;
 }
-/* 下りA特 */
+/* 下りB特 */
 .train-down-16 {
     background-image: url("icons/d_ltd.png");
     background-size: contain;
     background-repeat: no-repeat;
 }
-/* 下り臨時 */
+/* 下りA特 */
 .train-down-17 {
+    background-image: url("icons/d_ltd.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+/* 下り臨時 */
+.train-down-18 {
     background-image: url("icons/d_extra.png");
     background-size: contain;
     background-repeat: no-repeat;
 }
 /* 下り試運転 */
-.train-down-18 {
+.train-down-19 {
     background-image: url("icons/d_outserv.png");
     background-size: contain;
     background-repeat: no-repeat;
 }
-/* 下り臨時 */
-.train-down-19 {
+/* 下り団体 */
+.train-down-21 {
     background-image: url("icons/d_extra.png");
     background-size: contain;
     background-repeat: no-repeat;
 }
-/* 下り臨時 */
+/* 下り回送 */
 .train-down-20 {
     background-image: url("icons/d_outserv.png");
     background-size: contain;
@@ -256,8 +282,21 @@
 }
 
 /* 下り臨時特急 */
-.train-down-23 {
+.train-down-24 {
     background-image: url("icons/d_ex_ltd.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/* 下り区間急行 */
+.train-down-22 {
+    background-image: url("icons/d_subexp.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+/* 下り臨時区間急行 */
+.train-down-22 {
+    background-image: url("icons/d_ex_subexp.png");
     background-size: contain;
     background-repeat: no-repeat;
 }

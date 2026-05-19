@@ -33,6 +33,20 @@
     z-index: 1;
 }
 
+.stop-subexp {
+    font-size: 15px;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    background-color: #0abd44;
+    border-radius: 4px;
+    color: #ffffff;
+    z-index: 1;
+}
+
 .stop-exp {
     font-size: 15px;
     font-weight: 400;

@@ -64,27 +64,28 @@ function getTrainTypeByClass(trainClass) {
         case "14":
         case "15":
         case "16":
+        case "17":
             kind = "特急";
             break;
-        case "17":
-            kind = "臨時";
-            break;
         case "18":
-            kind = "試運転";
+            kind = "臨時";
             break;
         case "19":
-            kind = "臨時";
+            kind = "試運転";
             break;
         case "20":
             kind = "回送";
             break;
         case "21":
-            kind = "区間急行";
+            kind = "団体";
             break;
         case "22":
-            kind = "臨時区間急行";
+            kind = "区間急行";
             break;
         case "23":
+            kind = "臨時区間急行";
+            break;
+        case "24":
             kind = "臨時特急";
             break;
 
@@ -108,7 +109,7 @@ function TypeString(retsuban) {
         return 20;
     }
     if (Retsuban.startsWith("試")) {
-        return 18;
+        return 19;
     }
 
     if (Retsuban.startsWith("臨")) {
@@ -124,10 +125,13 @@ function TypeString(retsuban) {
         if (Retsuban.includes("C")) {
             return 7;
         }
+        if (Retsuban.includes("D")) {
+            return 23;
+        }
         return 6;
     } else {
         if (Retsuban.includes("A")) {
-            return 16;
+            return 17;
         }
         if (Retsuban.includes("K")) {
             return 5;
@@ -137,6 +141,9 @@ function TypeString(retsuban) {
         }
         if (Retsuban.includes("C")) {
             return 3;
+        }
+        if (Retsuban.includes("D")) {
+            return 22;
         }
     }
     return 1;
