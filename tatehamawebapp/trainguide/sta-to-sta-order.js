@@ -1,4 +1,4 @@
-// âwä‘Ç≤Ç∆ÇÃóÒé‘èáî‘ÇãLâØÇ∑ÇÈÉ}ÉbÉv
+// ÈßÖÈñì„Åî„Å®„ÅÆÂàóËªäÈ†ÜÁï™„ÇíË®òÊÜ∂„Åô„Çã„Éû„ÉÉ„Éó
 // { "TH67-TH68": { "up": ["1585C", "1298C"], "down": [...] } }
 var sectionOrderMap = {};
 
@@ -24,13 +24,13 @@ function getSortedDianameList(placeName, updown, dianameList) {
     return newOrder;
 }
 
-// ÉRÉìÉ\Å[ÉãÇ©ÇÁämîFóp
+// „Ç≥„É≥„ÇΩ„Éº„É´„Åã„ÇâÁ¢∫Ë™çÁî®: showSectionOrder() „ÅßÂëº„Å≥Âá∫„Åô
 window.showSectionOrder = function() {
     console.table(
         Object.entries(sectionOrderMap).map(([place, val]) => ({
-            âwä‘: place,
-            è„ÇË: val.up.join(", ") || "Ç»Çµ",
-            â∫ÇË: val.down.join(", ") || "Ç»Çµ"
+            section: place,
+            up: val.up.join(", ") || "none",
+            down: val.down.join(", ") || "none"
         }))
     );
 };
