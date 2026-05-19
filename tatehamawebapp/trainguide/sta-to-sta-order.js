@@ -8,7 +8,6 @@ function getSortedDianameList(placeName, updown, dianameList) {
     }
     const prevOrder = sectionOrderMap[placeName][updown];
 
-    // 前回の順番を維持しつつ、新規列車を末尾に追加
     const newOrder = [];
     prevOrder.forEach(dianame => {
         if (dianameList.includes(dianame)) {
@@ -21,7 +20,17 @@ function getSortedDianameList(placeName, updown, dianameList) {
         }
     });
 
-    // 記憶を更新
     sectionOrderMap[placeName][updown] = newOrder;
     return newOrder;
 }
+
+// コンソールから確認用
+window.showSectionOrder = function() {
+    console.table(
+        Object.entries(sectionOrderMap).map(([place, val]) => ({
+            駅間: place,
+            上り: val.up.join(", ") || "なし",
+            下り: val.down.join(", ") || "なし"
+        }))
+    );
+};
