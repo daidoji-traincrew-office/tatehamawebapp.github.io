@@ -68,7 +68,7 @@ function buildTimetableHtml(train) {
             const hasArrive = entry.ArrivalTime !== null && entry.ArrivalTime !== undefined && entry.ArrivalTime !== '';
 
             if (index === 0) {
-                // 始発駅はDepartureTimeを表示
+                // 始発駅はDepartureTimeを表示する
                 if (hasDepart) {
                     baseTime = entry.DepartureTime;
                 } else {
