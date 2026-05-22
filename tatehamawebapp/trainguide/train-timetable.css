@@ -1,0 +1,83 @@
+/* 時刻表セクション */
+.timetable-section {
+    margin-top: 12px;
+}
+
+.timetable-scroll {
+    max-height: 220px;
+    overflow-y: auto;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    pointer-events: auto;
+}
+
+.timetable-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.timetable-table tbody tr:nth-child(even) {
+    background: #fafafa;
+}
+
+#train-detail-body .timetable-table th,
+#train-detail-body .timetable-table td {
+    text-align: center;
+    padding: 4px 10px;
+    font-size: 0.95em;
+    white-space: nowrap;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+#train-detail-body .timetable-table thead th {
+    background: #f5f5f5;
+    color: #1976d2;
+    font-size: 0.9em;
+    border-bottom: 1px solid #ddd;
+    width: auto;
+}
+
+.timetable-header {
+    cursor: pointer;
+    user-select: none;
+    pointer-events: auto;
+}
+
+.timetable-header:hover {
+    background: #e8f0fe !important;
+}
+
+.timetable-pass {
+    color: #aaa;
+    font-size: 0.9em;
+}
+
+.timetable-scheduled {
+    color: #444;
+}
+
+.timetable-delayed {
+    color: #e53935;
+    font-weight: bold;
+}
+
+.timetable-on-time {
+    color: #bbb;
+}
+
+/* CSS */
+.timetable-scroll {
+    max-height: 220px;
+    overflow-y: auto;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    pointer-events: auto;
+    user-select: none;
+}
+
+.timetable-no-data {
+    color: #aaa;
+    font-size: 0.9em;
+    text-align: center;
+    padding: 8px;
+}

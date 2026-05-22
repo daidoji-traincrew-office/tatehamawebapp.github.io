@@ -148,6 +148,9 @@ function showTrainDetail(trainId) {
 
     `;
 
+        // 時刻表HTML（train-timetable.js の buildTimetableHtml を利用）
+        const timetableHtml = typeof buildTimetableHtml === 'function' ? buildTimetableHtml(train) : '';
+
         body.innerHTML = `
       <h2>列車詳細</h2>
             ${carLabelHtml}
@@ -163,9 +166,8 @@ function showTrainDetail(trainId) {
         <tr><th>行先</th><td>${ HIDE ? '？？？' : destName}</td></tr>
         <tr><th>両数</th><td>${carCount} 両</td></tr>
         <tr><th>位置</th><td>${trackDisplay || trackName}</td></tr>
-
       </table>
-
+      ${timetableHtml}
     `;
     } else {
         body.innerHTML = `<h2>列車詳細</h2><p>列番: ${trainId}</p><p>詳細データがありません。</p>`;

@@ -84,14 +84,15 @@
     margin-top: 8px;
 }
 
-#train-detail-body th, #train-detail-body td {
+#train-detail-body table:not(.timetable-table) th,
+#train-detail-body table:not(.timetable-table) td {
     border: 1px solid #eee;
     padding: 6px 12px;
     text-align: left;
     font-size: 1em;
 }
 
-#train-detail-body th {
+#train-detail-body table:not(.timetable-table) th {
     background: #f5f5f5;
     color: #1976d2;
     width: 5em;
@@ -153,3 +154,4 @@
     color: #222; /* •¶šFiÂŒnj */
     letter-spacing: 0.1em; /* •¶šŠÔŠu */
 }
+
