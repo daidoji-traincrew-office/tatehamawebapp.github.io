@@ -167,6 +167,7 @@ function showTrainDetail(trainId) {
         <tr><th>両数</th><td>${carCount} 両</td></tr>
         <tr><th>位置</th><td>${trackDisplay || trackName}</td></tr>
       </table>
+
       ${timetableHtml}
     `;
     } else {
@@ -175,7 +176,7 @@ function showTrainDetail(trainId) {
     modal.style.display = 'flex';
 
 }
-
+// ---時刻表セクション---
 
 // --- モーダルを閉じる ---
 function closeTrainDetail() {
