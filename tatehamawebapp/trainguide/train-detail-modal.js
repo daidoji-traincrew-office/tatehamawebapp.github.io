@@ -110,8 +110,10 @@ function showTrainDetail(trainId) {
         <span class="route-direction-d">館浜側</span>
         <span class="route-direction-u">大手橋側</span>
       </div>
-
     `;
+
+        // 時刻表HTML（train-timetable.js の buildTimetableHtml を利用）
+        const timetableHtml = typeof buildTimetableHtml === 'function' ? buildTimetableHtml(train) : '';
 
         body.innerHTML = `
       <h2>列車詳細</h2>
@@ -126,7 +128,7 @@ function showTrainDetail(trainId) {
         <tr><th>遅延</th><td>${Math.max(0, train.Delay ?? 0)} 分</td></tr>
         <tr><th>走行位置</th><td>${trackDisplay || trackName}</td></tr>
       </table>
-
+      ${timetableHtml}
     `;
     } else {
         body.innerHTML = `<h2>列車詳細</h2><p>列番: ${trainId}</p><p>詳細データがありません。</p>`;

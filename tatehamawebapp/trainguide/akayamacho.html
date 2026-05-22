@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="station-stop.css">
     <link rel="stylesheet" href="fixed-tab.css">
     <link rel="stylesheet" href="train-detail-modal.css">
+    <link rel="stylesheet" href="train-timetable.css">
     <script type="text/javascript" src="setting.js" charset="utf-8"></script>
     <script type="text/javascript" src="train-place.js" charset="utf-8"></script>
     <script type="text/javascript" src="../receivedata.js" charset="utf-8"></script>
@@ -21,10 +22,15 @@
     <script type="text/javascript" src="../information.js" charset="utf-8"></script>
     <script type="text/javascript" src="random.js" charset="utf-8"></script>
     <script type="text/javascript" src="interval.js" charset="utf-8"></script>
+    <script type="text/javascript" src="train-timetable.js" charset="utf-8"></script>
+    <script type="text/javascript" src="train-detail-modal.js" charset="utf-8"></script>
+
 </head>
 <body>
 
     <!-- 上部固定タブ -->
+
+
 
     <div id="fixed-tab">
         <div class="fixed-home-link-wrapper">
@@ -34,7 +40,7 @@
     </div>
     <div id="time-text-area">
         <span id="fixed-message" class="fixed-message-absolute">
-            <div class="fixed-message-subtitle">大道寺～館浜　</div>
+            <div class="fixed-message-subtitle">赤山町～大道寺</div>
             <span class="fixed-update-row">
                 <span class="fixed-update-label"></span>
                 <span id="fixed-time">情報取得中...</span><span id="fixed-time-label"></span>
@@ -42,12 +48,21 @@
         </span>
     </div>
 
+
     <!-- スクロールテキストエリア -->
     <div class="scrolling-text-area" id="scrolling-text-area">
         <img src="../design/information.png" alt="運行情報" class="info-icon">
         <span class="scrolling-text-wrapper">
             <span class="scrolling-text" id="scrolling-text-bottom"></span>
         </span>
+    </div>
+
+    <!-- 運行情報モーダル -->
+    <div id="info-modal" class="info-modal" style="display:none;">
+        <div class="info-modal-content">
+            <span class="info-modal-close" id="info-modal-close">&times;</span>
+            <div class="info-modal-body" id="info-modal-body"></div>
+        </div>
     </div>
 
     <!-- 運行情報モーダル -->
