@@ -4,13 +4,15 @@ function getStationNameById(id) {
     const found = staname.find(([stationId]) => stationId === id);
     return found ? found[1] : id;
 }
-function getTrackDisplayName(trackName) {
+function getTrackDisplayName(trackName, isUp = false) {
     if (!window.ss) return trackName;
     const found = ss.find(([name]) => name === trackName);
     if (found) {
         const [, sta1, sta2] = found;
         if (sta1 && sta2) {
-            return getStationNameById(sta1) + "〜" + getStationNameById(sta2);
+            return isUp
+                ? getStationNameById(sta2) + "〜" + getStationNameById(sta1)
+                : getStationNameById(sta1) + "〜" + getStationNameById(sta2);
         } else if (sta1) {
             return getStationNameById(sta1);
         }
@@ -30,13 +32,23 @@ function showTrainDetail(trainId) {
     }
 
     const train = Location_data.TrainInfos[trainId];
+
+    // 上り/下りの判定
+    let isUp = false;
+    if (train) {
+        const nameMatch = (train.Name || trainId).match(/(\d+)[^\d]*$/);
+        if (nameMatch) {
+            isUp = parseInt(nameMatch[1], 10) % 2 === 0;
+        }
+    }
+
     let trackName = '';
     let trackDisplay = '';
     if (Location_data.TrackCircuitData && train) {
         const track = Location_data.TrackCircuitData.find(tc => tc.Last === trainId);
         if (track) {
             trackName = track.Name;
-            trackDisplay = getTrackDisplayName(trackName);
+            trackDisplay = getTrackDisplayName(trackName, isUp);
         }
     }
 
@@ -67,19 +79,8 @@ function showTrainDetail(trainId) {
     const carCount = Array.isArray(train?.CarStates) ? train.CarStates.length : 0;
 
     // --- 車両画像のHTMLを生成 ---
-    // car-icons.jsのgetCarImageFileNamesを利用
     let carImagesHtml = '';
     if (Array.isArray(train?.CarStates)) {
-        // 画像ファイル名のリストを取得
-
-        var isUp = false
-        // Nameの末尾の数字を抽出
-        const match = train.Name && train.Name.match(/(\d+)[^\d]*$/);
-        if (match) {
-            const num = parseInt(match[1], 10);
-            isUp = num % 2 === 0
-        }
-
         const r = getCarImageFileNames(train.CarStates, isUp);
         console.log(r);
         const imgList = r[0];
@@ -92,38 +93,29 @@ function showTrainDetail(trainId) {
             `</div>`;
     }
 
-
-
     if (train) {
 
         // 進行方向の判定
         let directionHtml = '';
-        const name = train.Name || trainId;
-        const match = name.match(/(\d+)[^\d]*$/); // 末尾の数字を抽出
-        if (match) {
-            const num = parseInt(match[1], 10);
-            if (num % 2 === 0) {
-                directionHtml = `<div class="train-direction-u">進行方向▶</div>`;
-            } else {
-                directionHtml = `<div class="train-direction-d">◀進行方向</div>`;
-            }
+        if (isUp) {
+            directionHtml = `<div class="train-direction-u">進行方向▶</div>`;
+        } else {
+            directionHtml = `<div class="train-direction-d">◀進行方向</div>`;
         }
 
         // 運行番号の抽出
+        const nameMatch = (train.Name || trainId).match(/(\d+)[^\d]*$/);
         let operationNumber = '';
-        if (match) {
-            const numStr = match[1];
+        if (nameMatch) {
+            const numStr = nameMatch[1];
             let opNum = '';
             if (numStr.length >= 2) {
-                opNum = numStr.slice(-2); // 10の位と1の位
+                opNum = numStr.slice(-2);
             } else if (numStr.length === 1) {
                 opNum = numStr;
             }
             let opNumInt = parseInt(opNum, 10);
-
-            // 元の列番（数字部分）を取得
             const baseNum = parseInt(numStr, 10);
-            // 奇数なら-1
             if (opNumInt % 2 === 1) {
                 opNumInt = opNumInt - 1;
             }
@@ -134,9 +126,7 @@ function showTrainDetail(trainId) {
             } else if (baseNum > 3000) {
                 opNumInt += 100;
             }
-            // 2桁以上の場合はゼロ埋め
             operationNumber = opNumInt.toString().padStart(opNum.length, '0');
-
         }
 
         // ラベル行を追加
@@ -145,7 +135,6 @@ function showTrainDetail(trainId) {
         <span class="route-direction-d">館浜側</span>
         <span class="route-direction-u">大手橋側</span>
       </div>
-
     `;
 
         // 時刻表HTML（train-timetable.js の buildTimetableHtml を利用）
@@ -173,9 +162,7 @@ function showTrainDetail(trainId) {
         body.innerHTML = `<h2>列車詳細</h2><p>列番: ${trainId}</p><p>詳細データがありません。</p>`;
     }
     modal.style.display = 'flex';
-
 }
-// ---時刻表セクション---
 
 // --- モーダルを閉じる ---
 function closeTrainDetail() {
@@ -184,7 +171,6 @@ function closeTrainDetail() {
 
 // --- イベントリスナーを追加 ---
 document.addEventListener('DOMContentLoaded', function () {
-    // 列車アイコンにイベントを付与
     document.body.addEventListener('click', function (e) {
         const icon = e.target.closest('.train-icon');
         if (icon) {
@@ -192,12 +178,10 @@ document.addEventListener('DOMContentLoaded', function () {
             showTrainDetail(trainId);
         }
     });
-    // 閉じるボタン
     const closeBtn = document.getElementById('train-detail-close');
     if (closeBtn) {
         closeBtn.onclick = closeTrainDetail;
     }
-    // モーダル外クリックで閉じる
     const modal = document.getElementById('train-detail-modal');
     if (modal) {
         modal.addEventListener('click', function (e) {

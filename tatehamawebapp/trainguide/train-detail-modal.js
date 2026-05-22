@@ -4,13 +4,15 @@ function getStationNameById(id) {
     const found = staname.find(([stationId]) => stationId === id);
     return found ? found[1] : id;
 }
-function getTrackDisplayName(trackName) {
+function getTrackDisplayName(trackName, isUp = false) {
     if (!window.ss) return trackName;
     const found = ss.find(([name]) => name === trackName);
     if (found) {
         const [, sta1, sta2] = found;
         if (sta1 && sta2) {
-            return getStationNameById(sta1) + "〜" + getStationNameById(sta2);
+            return isUp
+                ? getStationNameById(sta2) + "〜" + getStationNameById(sta1)
+                : getStationNameById(sta1) + "〜" + getStationNameById(sta2);
         } else if (sta1) {
             return getStationNameById(sta1);
         }
@@ -30,13 +32,23 @@ function showTrainDetail(trainId) {
     }
 
     const train = Location_data.TrainInfos[trainId];
+
+    // 上り/下りの判定
+    let isUp = false;
+    if (train) {
+        const nameMatch = (train.Name || trainId).match(/(\d+)[^\d]*$/);
+        if (nameMatch) {
+            isUp = parseInt(nameMatch[1], 10) % 2 === 0;
+        }
+    }
+
     let trackName = '';
     let trackDisplay = '';
     if (Location_data.TrackCircuitData && train) {
         const track = Location_data.TrackCircuitData.find(tc => tc.Last === trainId);
         if (track) {
             trackName = track.Name;
-            trackDisplay = getTrackDisplayName(trackName);
+            trackDisplay = getTrackDisplayName(trackName, isUp);
         }
     }
 
@@ -67,16 +79,6 @@ function showTrainDetail(trainId) {
     // car-icons.jsのgetCarImageFileNamesを利用
     let carImagesHtml = '';
     if (Array.isArray(train?.CarStates)) {
-        // 画像ファイル名のリストを取得
-
-        var isUp = false
-        // Nameの末尾の数字を抽出
-        const match = train.Name && train.Name.match(/(\d+)[^\d]*$/);
-        if (match) {
-            const num = parseInt(match[1], 10);
-            isUp = num % 2 === 0
-        }
-
         const r = getCarImageFileNames(train.CarStates, isUp);
         const imgList = r[0];
         carImagesHtml = `<div class="train-car-image-row">` +
@@ -87,21 +89,14 @@ function showTrainDetail(trainId) {
             `</div>`;
     }
 
-
-
     if (train) {
 
         // 進行方向の判定
         let directionHtml = '';
-        const name = train.Name || trainId;
-        const match = name.match(/(\d+)[^\d]*$/); // 末尾の数字を抽出
-        if (match) {
-            const num = parseInt(match[1], 10);
-            if (num % 2 === 0) {
-                directionHtml = `<div class="train-direction-u">進行方向▶</div>`;
-            } else {
-                directionHtml = `<div class="train-direction-d">◀進行方向</div>`;
-            }
+        if (isUp) {
+            directionHtml = `<div class="train-direction-u">進行方向▶</div>`;
+        } else {
+            directionHtml = `<div class="train-direction-d">◀進行方向</div>`;
         }
 
         // ラベル行を追加
@@ -135,11 +130,6 @@ function showTrainDetail(trainId) {
     }
     modal.style.display = 'flex';
 }
-
-//         
-
-
-
 
 // --- モーダルを閉じる ---
 function closeTrainDetail() {
