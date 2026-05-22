@@ -1,3 +1,14 @@
+
+
+// グローバル変数として初期化
+var Location_data = {
+    "ServerMode": false,
+    "TrackCircuitData": [],
+    "TrainInfos": {},
+    "OperationInformations": []
+};
+
+
 const DEBUG_MODE = false;
 
 async function Getdata() {
