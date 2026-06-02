@@ -78,19 +78,40 @@ function showTrainDetail(trainId) {
     // 編成両数
     const carCount = Array.isArray(train?.CarStates) ? train.CarStates.length : 0;
 
-    // --- 車両画像のHTMLを生成 ---
+    // --- 車両画像 + 乗車率のHTMLを生成 ---
     let carImagesHtml = '';
     if (Array.isArray(train?.CarStates)) {
         const r = getCarImageFileNames(train.CarStates, isUp);
         console.log(r);
         const imgList = r[0];
         var carString = r[1];
-        carImagesHtml = `<div class="train-car-image-row">` +
-            imgList.map((imgSrc, idx) => {
-                const alt = train.CarStates[idx]?.CarModel ?? "";
-                return `<img src="../${imgSrc}" alt="${alt}" class="car-image" onerror="this.onerror=null;this.src='../caricons/TC_9999.png';">`;
-            }).join('') +
-            `</div>`;
+
+        const occupancyInfo = typeof buildOccupancyRateIconList === 'function'
+            ? buildOccupancyRateIconList(train)
+            : { type: 'none' };
+
+        // syページは1階層深いため画像パスに ../を付ける
+        const fixedIcons = occupancyInfo.type === 'perCar'
+            ? occupancyInfo.icons.map(html => html.replace('src="occupancyrate/', 'src="../occupancyrate/'))
+            : [];
+        const fixedSingleHtml = occupancyInfo.type === 'single'
+            ? occupancyInfo.html.replace('src="occupancyrate/', 'src="../occupancyrate/')
+            : '';
+
+        const carUnitsHtml = imgList.map((imgSrc, idx) => {
+            const alt = train.CarStates[idx]?.CarModel ?? "";
+            const carImg = `<img src="../${imgSrc}" alt="${alt}" class="car-image" onerror="this.onerror=null;this.src='../caricons/TC_9999.png';">`;
+            const occupancyIcon = occupancyInfo.type === 'perCar'
+                ? (fixedIcons[idx] ?? '')
+                : '';
+            return `<div class="car-unit">${carImg}${occupancyIcon}</div>`;
+        }).join('');
+
+        const singleOccupancyHtml = occupancyInfo.type === 'single'
+            ? `<div class="occupancy-rate-row occupancy-rate-row--single">${fixedSingleHtml}</div>`
+            : '';
+
+        carImagesHtml = `<div class="train-car-image-row">${carUnitsHtml}</div>${singleOccupancyHtml}`;
     }
 
     if (train) {
@@ -137,7 +158,7 @@ function showTrainDetail(trainId) {
       </div>
     `;
 
-        // 時刻表HTML（train-timetable.js の buildTimetableHtmlを利用）
+        // 時刻表HTML（train-timetable.js の buildTimetableHtml を利用）
         const timetableHtml = typeof buildTimetableHtml === 'function' ? buildTimetableHtml(train) : '';
 
         body.innerHTML = `

@@ -131,7 +131,6 @@ function showTrainDetail(trainId) {
       <h2>列車詳細</h2>
             ${carLabelHtml}
             ${carImagesHtml}
-            ${occupancyRateHtml}
             ${directionHtml}
       <table>
         <tr><th>列車番号</th><td>${HIDE ? '?????' : train.Name || trainId}</td></tr>
