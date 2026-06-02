@@ -82,7 +82,7 @@ function showTrainDetail(trainId) {
         const imgList = r[0];
 
         const occupancyInfo = typeof buildOccupancyRateIconList === 'function'
-            ? buildOccupancyRateIconList(train)
+            ? buildOccupancyRateIconList(train, isUp)
             : { type: 'none' };
 
         const carUnitsHtml = imgList.map((imgSrc, idx) => {

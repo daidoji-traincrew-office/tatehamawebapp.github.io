@@ -87,7 +87,7 @@ function showTrainDetail(trainId) {
         var carString = r[1];
 
         const occupancyInfo = typeof buildOccupancyRateIconList === 'function'
-            ? buildOccupancyRateIconList(train)
+            ? buildOccupancyRateIconList(train, isUp)
             : { type: 'none' };
 
         // syページは1階層深いため画像パスに ../を付ける

@@ -10,12 +10,13 @@
  * @param {object} train - Location_data.TrainInfos の1列車分オブジェクト
  * @returns {{ type: string, icons?: string[], html?: string }}
  */
-function buildOccupancyRateIconList(train) {
+function buildOccupancyRateIconList(train, isUp = false) {
     if (!train || !Array.isArray(train.CarStates) || train.CarStates.length === 0) {
         return { type: 'none' };
     }
 
-    const carStates = train.CarStates;
+    // car-icons.js と同様に上り列車のときは反転する
+    const carStates = isUp ? [...train.CarStates].reverse() : [...train.CarStates];
     const imagePath = 'occupancyrate';
 
     // train-detail-modal.js と同じ種別判定ロジック
