@@ -100,35 +100,78 @@
 
 
 .train-car-image-row {
-    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
     margin-bottom: 0.6em;
+}
+
+/* 1両分のまとまり：車両アイコンと乗車率を縦に並べる */
+.car-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: max-content; /* car-imageの自然な幅を基準にする */
 }
 
 .car-image {
     height: 80px;
-    margin: 0 0px;
-    vertical-align: middle;
+    width: auto;
+    display: block;
+    margin: 0;
 }
 
+.occupancy-rate-img {
+    width: 100%;       /* car-unit幅（= car-imageの幅）に追従 */
+    max-height: 24px;  /* それでも大きすぎる場合の上限 */
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin-top: 2px;
+}
 
+/* 単一表示行（特急・データなし・対象外） */
+.occupancy-rate-row--single {
+    display: flex;
+    justify-content: center;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
 
+.occupancy-rate-nodata {
+    font-size: 12px;
+    color: #888;
+    padding: 2px 6px;
+}
+
+.occupancy-rate-express {
+    font-size: 13px;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.occupancy-rate-express--free  { color: #1a7f1a; }
+.occupancy-rate-express--few   { color: #b07800; }
+.occupancy-rate-express--full  { color: #cc0000; }
 
 .train-direction-u {
-    text-align: right; /* 中央揃え */
-    margin-top: 0.1em; /* 上マージン */
-    font-size: 0.2em; /* 文字サイズ */
-    font-weight: 500; /* 太字 */
-    color: #222; /* 文字色（青系） */
-    letter-spacing: 0.1em; /* 文字間隔 */
+    text-align: right;
+    margin-top: 0.1em;
+    font-size: 0.2em;
+    font-weight: 500;
+    color: #222;
+    letter-spacing: 0.1em;
 }
 
 .train-direction-d {
-    text-align: left; /* 中央揃え */
-    margin-top: 0.1em; /* 上マージン */
-    font-size: 0.2em; /* 文字サイズ */
-    font-weight: 500; /* 太字 */
-    color: #222; /* 文字色（青系） */
-    letter-spacing: 0.1em; /* 文字間隔 */
+    text-align: left;
+    margin-top: 0.1em;
+    font-size: 0.2em;
+    font-weight: 500;
+    color: #222;
+    letter-spacing: 0.1em;
 }
 
 .route-direction {
@@ -138,20 +181,20 @@
 }
 
 .route-direction-u {
-    text-align: right; /* 中央揃え */
-    margin-top: 0.1em; /* 上マージン */
-    font-size: 0.2em; /* 文字サイズ */
-    font-weight: 500; /* 太字 */
-    color: #222; /* 文字色（青系） */
-    letter-spacing: 0.1em; /* 文字間隔 */
+    text-align: right;
+    margin-top: 0.1em;
+    font-size: 0.2em;
+    font-weight: 500;
+    color: #222;
+    letter-spacing: 0.1em;
 }
 
 .route-direction-d {
-    text-align: left; /* 中央揃え */
-    margin-top: 0.1em; /* 上マージン */
-    font-size: 0.2em; /* 文字サイズ */
-    font-weight: 500; /* 太字 */
-    color: #222; /* 文字色（青系） */
-    letter-spacing: 0.1em; /* 文字間隔 */
+    text-align: left;
+    margin-top: 0.1em;
+    font-size: 0.2em;
+    font-weight: 500;
+    color: #222;
+    letter-spacing: 0.1em;
 }
 

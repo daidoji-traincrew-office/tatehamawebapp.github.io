@@ -75,19 +75,36 @@ function showTrainDetail(trainId) {
     // 編成両数
     const carCount = Array.isArray(train?.CarStates) ? train.CarStates.length : 0;
 
-    // --- 車両画像のHTMLを生成 ---
-    // car-icons.jsのgetCarImageFileNamesを利用
+    // --- 車両画像 + 乗車率のHTMLを生成 ---
     let carImagesHtml = '';
     if (Array.isArray(train?.CarStates)) {
         const r = getCarImageFileNames(train.CarStates, isUp);
         const imgList = r[0];
-        carImagesHtml = `<div class="train-car-image-row">` +
-            imgList.map((imgSrc, idx) => {
-                const alt = train.CarStates[idx]?.CarModel ?? "";
-                return `<img src="${imgSrc}" alt="${alt}" class="car-image" onerror="this.onerror=null;this.src='caricons/TC_9999.png';">`;
-            }).join('') +
-            `</div>`;
+
+        const occupancyInfo = typeof buildOccupancyRateIconList === 'function'
+            ? buildOccupancyRateIconList(train)
+            : { type: 'none' };
+
+        const carUnitsHtml = imgList.map((imgSrc, idx) => {
+            const alt = train.CarStates[idx]?.CarModel ?? "";
+            const carImg = `<img src="${imgSrc}" alt="${alt}" class="car-image" onerror="this.onerror=null;this.src='caricons/TC_9999.png';">`;
+            const occupancyIcon = occupancyInfo.type === 'perCar'
+                ? (occupancyInfo.icons[idx] ?? '')
+                : '';
+            return `<div class="car-unit">${carImg}${occupancyIcon}</div>`;
+        }).join('');
+
+        const singleOccupancyHtml = occupancyInfo.type === 'single'
+            ? `<div class="occupancy-rate-row occupancy-rate-row--single">${occupancyInfo.html}</div>`
+            : '';
+
+        carImagesHtml = `<div class="train-car-image-row">${carUnitsHtml}</div>${singleOccupancyHtml}`;
     }
+
+    // --- 乗車率表示のHTMLを生成 ---
+    const occupancyRateHtml = typeof buildOccupancyRateHtml === 'function'
+        ? buildOccupancyRateHtml(train)
+        : '';
 
     if (train) {
 
@@ -114,6 +131,7 @@ function showTrainDetail(trainId) {
       <h2>列車詳細</h2>
             ${carLabelHtml}
             ${carImagesHtml}
+            ${occupancyRateHtml}
             ${directionHtml}
       <table>
         <tr><th>列車番号</th><td>${HIDE ? '?????' : train.Name || trainId}</td></tr>
