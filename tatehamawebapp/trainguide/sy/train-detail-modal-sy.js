@@ -137,7 +137,7 @@ function showTrainDetail(trainId) {
       </div>
     `;
 
-        // 時刻表HTML（train-timetable.js の buildTimetableHtml を利用）
+        // 時刻表HTML（train-timetable.js の buildTimetableHtmlを利用）
         const timetableHtml = typeof buildTimetableHtml === 'function' ? buildTimetableHtml(train) : '';
 
         body.innerHTML = `
