@@ -104,7 +104,7 @@
     flex-direction: row;
     align-items: flex-start;
     justify-content: center;
-    margin-bottom: 0.6em;
+    margin-bottom: 1.7em;
 }
 
 /* 1両分のまとまり：車両アイコンと乗車率を縦に並べる */
@@ -123,12 +123,12 @@
 }
 
 .occupancy-rate-img {
-    width: 100%;       /* car-unit幅（= car-imageの幅）に追従 */
-    max-height: 24px;  /* それでも大きすぎる場合の上限 */
+    width: 100%;
+    max-height: 24px;
     height: auto;
     object-fit: contain;
     display: block;
-    margin-top: 2px;
+    margin-top: -8px; /* マイナスにすることで上の画像に重なる */
 }
 
 /* 単一表示行（特急・データなし・対象外） */

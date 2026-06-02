@@ -62,7 +62,7 @@ function buildOccupancyRateIconList(train) {
     }
 
     // === 判定4: それ以外 → 各車両ごとに画像を返す ===
-    const excludedModels = ['3000', '3020', '4000', '4300', '4600'];
+    const excludedModels = ['3000', '3020', '4000', '4300', '4600', '3300V'];
     const icons = carStates.map(car => {
         // 対象外車両モデルは0.pngを表示
         if (excludedModels.includes(String(car.CarModel ?? ''))) {
