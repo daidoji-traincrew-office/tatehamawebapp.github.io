@@ -204,10 +204,10 @@ function addHtoFileName(filename) {
 var MasterComparison = {
     "3000": [
         { "CarModel": "3000", "HasConductorCab": true,  "HasDriverCab": true,  "HasMotor": true, "HasPantograph": true  },
+        { "CarModel": "3000", "HasConductorCab": false, "HasDriverCab": false, "HasMotor": true, "HasPantograph": false },
         { "CarModel": "3000", "HasConductorCab": false, "HasDriverCab": false, "HasMotor": true, "HasPantograph": true  },
-        { "CarModel": "3000", "HasConductorCab": false, "HasDriverCab": false, "HasMotor": true, "HasPantograph": true  },
-        { "CarModel": "3000", "HasConductorCab": false, "HasDriverCab": false, "HasMotor": true, "HasPantograph": true  },
-        { "CarModel": "3000", "HasConductorCab": false, "HasDriverCab": false, "HasMotor": true, "HasPantograph": true  },
+        { "CarModel": "3000", "HasConductorCab": false, "HasDriverCab": false, "HasMotor": true, "HasPantograph": false  },
+        { "CarModel": "3000", "HasConductorCab": false, "HasDriverCab": false, "HasMotor": true, "HasPantograph": false  },
         { "CarModel": "3000", "HasConductorCab": true,  "HasDriverCab": true,  "HasMotor": true, "HasPantograph": true  }
     ],
     "3020": [
