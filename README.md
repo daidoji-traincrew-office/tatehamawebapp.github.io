@@ -3,7 +3,7 @@
 ## Credits
 白石(設計・開発)  
 匠手　津道(開発・車両デザイン)  
-Kesigomon(開発)  
+ケシゴモン(開発)  
 星狛つらら(開発)  
 
 ## License Policy
