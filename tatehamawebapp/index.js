@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
         "",
         "",
         "サーバーへの参加はTRAIN CREWゲーム内のコミュニティDiscordから",
-        "ドキュメント > その他リンクより",
+        "宣伝など > ピン留め投稿より",
         "",
         "",
         "",
